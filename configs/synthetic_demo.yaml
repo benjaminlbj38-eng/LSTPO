@@ -1,0 +1,44 @@
+inherits: configs/base.yaml
+
+experiment:
+  name: lstpo_synth
+  output_dir: outputs/synth
+
+data:
+  root_dir: data/synthetic_demo
+  domains: ["weather_like", "traffic_like", "electricity_like", "illness_like"]
+  seq_len: 96
+  pred_len: 24
+  batch_size: 16
+
+synthetic:
+  n_steps:
+    train: 900
+    val: 200
+    test: 200
+  n_features: 4
+  domains:
+    weather_like:
+      trend_strength: 1.2
+      periodic_strength: 1.0
+      short_noise: 0.15
+      abrupt_strength: 0.05
+      short_preference_bias: 0.2
+    traffic_like:
+      trend_strength: 0.4
+      periodic_strength: 0.5
+      short_noise: 0.45
+      abrupt_strength: 0.35
+      short_preference_bias: 0.9
+    electricity_like:
+      trend_strength: 0.8
+      periodic_strength: 1.2
+      short_noise: 0.18
+      abrupt_strength: 0.08
+      short_preference_bias: 0.35
+    illness_like:
+      trend_strength: 0.3
+      periodic_strength: 0.3
+      short_noise: 0.55
+      abrupt_strength: 0.2
+      short_preference_bias: 0.85

@@ -1,0 +1,71 @@
+experiment:
+  name: lstpo_demo
+  output_dir: outputs/train
+
+seed: 42
+
+device:
+  use_cuda: true
+  mixed_precision: true
+
+data:
+  root_dir: data/synthetic_demo
+  domains: ["weather_like", "traffic_like", "electricity_like", "illness_like"]
+  seq_len: 96
+  pred_len: 24
+  train_step: 1
+  eval_step: 1
+  batch_size: 16
+  num_workers: 0
+  inverse_scale_metrics: true
+
+segmentation:
+  tsample: 192
+  default_short_length: 48
+  estimation_batches: 1
+  min_short_length: 12
+  min_long_length: 48
+  max_acf_lag: 256
+  pelt_penalty: 8.0
+
+model:
+  input_dim: 4
+  tau: 1.0
+  base_model:
+    d_model: 128
+    nhead: 4
+    num_layers: 6
+    dim_feedforward: 256
+    dropout: 0.1
+    max_len: 1024
+  preference_generator:
+    d_model: 64
+    nhead: 2
+    num_layers: 2
+    dim_feedforward: 128
+    dropout: 0.1
+    max_len: 1024
+
+training:
+  preference_warmup_epochs: 2
+  meta_epochs: 5
+  patience: 5
+  warmup_lr: 0.001
+  alpha: 0.01
+  beta: 0.1
+  lambda_reg: 0.001
+  grad_clip: 1.0
+  log_interval: 20
+
+evaluation:
+  output_dir: outputs/eval
+  adaptation_steps: 5
+  adaptation_batches: 2
+  adaptation_lr: 0.001
+  few_shot_fraction: 0.1
+
+ablation:
+  no_tss: false
+  no_tpo: false
+  no_meta: false
+  no_adapt: false

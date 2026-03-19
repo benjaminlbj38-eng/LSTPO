@@ -1,0 +1,36 @@
+inherits: configs/train.yaml
+
+experiment:
+  name: ablation_no_tss
+  output_dir: outputs/ablation_no_tss
+
+ablation:
+  no_tss: true
+  no_tpo: false
+  no_meta: false
+  no_adapt: false
+
+inherits: configs/train.yaml
+
+experiment:
+  name: ablation_no_tpo
+  output_dir: outputs/ablation_no_tpo
+
+ablation:
+  no_tss: false
+  no_tpo: true
+  no_meta: false
+  no_adapt: false
+
+inherits: configs/train.yaml
+
+experiment:
+  name: ablation_no_meta
+  output_dir: outputs/ablation_no_meta
+
+ablation:
+  no_tss: false
+  no_tpo: false
+  no_meta: true
+  no_adapt: false
+

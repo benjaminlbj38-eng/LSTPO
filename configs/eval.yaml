@@ -1,0 +1,12 @@
+inherits: configs/base.yaml
+
+experiment:
+  name: lstpo_eval
+  output_dir: outputs/eval
+
+evaluation:
+  output_dir: outputs/eval
+  adaptation_steps: 5
+  adaptation_batches: 2
+  adaptation_lr: 0.001
+  few_shot_fraction: 0.1

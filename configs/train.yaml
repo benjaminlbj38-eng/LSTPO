@@ -1,0 +1,14 @@
+inherits: configs/base.yaml
+
+experiment:
+  name: lstpo_train
+  output_dir: outputs/train
+
+training:
+  preference_warmup_epochs: 2
+  meta_epochs: 8
+  patience: 4
+  warmup_lr: 0.001
+  alpha: 0.01
+  beta: 0.1
+  lambda_reg: 0.001
