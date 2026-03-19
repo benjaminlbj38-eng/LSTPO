@@ -17,7 +17,7 @@ LSTPO is a research codebase for **cross-domain time series forecasting** based 
 Instead of treating all temporal patterns equally, LSTPO models forecasting as a **time-dependent preference learning problem**, where the model dynamically learns whether **long-term** or **short-term** temporal dependency is more useful across domains.
 
 <p align="center">
-  <img src="assets/framework.png" alt="LSTPO Framework" width="85%">
+  <img src="src/model.png" alt="LSTPO Framework" width="85%">
 </p>
 
 ---
@@ -40,7 +40,7 @@ To achieve this, LSTPO combines:
 
 ---
 
-## Highlights
+## ✨ Highlights
 
 - **Cross-domain forecasting from a preference perspective**  
   LSTPO reframes cross-domain forecasting as learning *which temporal dependency to trust*.
@@ -62,16 +62,9 @@ LSTPO follows a three-stage pipeline:
 3. **Adaptation and Forecasting**  
    The learned preference is rapidly adapted to the target domain for final forecasting.
 
-<p align="center">
-  <img src="assets/framework.png" alt="LSTPO Framework" width="88%">
-</p>
-<p align="center">
-  <em>Overview of the LSTPO framework.</em>
-</p>
-
 ---
 
-## Reported Results
+## 📊 Results
 
 According to the paper, LSTPO:
 
